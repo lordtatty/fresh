@@ -65,8 +65,7 @@ func start() {
 						os.Exit(1)
 					}
 					createBuildErrorsLog(errorMessage)
-				}
-				else {
+				} else {
 					build
 					errorMessage, ok := build()
 					if !ok {
