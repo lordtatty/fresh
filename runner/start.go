@@ -66,7 +66,6 @@ func start() {
 					}
 					createBuildErrorsLog(errorMessage)
 				} else {
-					build
 					errorMessage, ok := build()
 					if !ok {
 						buildFailed = true
