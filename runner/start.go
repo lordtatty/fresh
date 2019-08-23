@@ -60,23 +60,23 @@ func start() {
 				errorMessage, ok := test()
 				if !ok {
 					buildFailed = true
-					mainLog("Build Failed: \n %s", errorMessage)
+					mainLog("Tests failed Failed: \n %s", errorMessage)
 					if !started {
 						os.Exit(1)
 					}
 					createBuildErrorsLog(errorMessage)
 				}
-				else{
+				else {
 					// build
-					errorMessage, ok := build()
-					if !ok {
-						buildFailed = true
-						mainLog("Build Failed: \n %s", errorMessage)
-						if !started {
-							os.Exit(1)
-						}
-						createBuildErrorsLog(errorMessage)
-					}
+					// errorMessage, ok := build()
+					// if !ok {
+					// 	buildFailed = true
+					// 	mainLog("Build Failed: \n %s", errorMessage)
+					// 	if !started {
+					// 		os.Exit(1)
+					// 	}
+					// 	createBuildErrorsLog(errorMessage)
+					// }
 				}
 			}
 
