@@ -56,7 +56,8 @@ func start() {
 
 			buildFailed := false
 			if shouldRebuild(eventName) {
-				errorMessage, ok := build()
+				// test
+				errorMessage, ok := test()
 				if !ok {
 					buildFailed = true
 					mainLog("Build Failed: \n %s", errorMessage)
@@ -64,6 +65,18 @@ func start() {
 						os.Exit(1)
 					}
 					createBuildErrorsLog(errorMessage)
+				}
+				else{
+					// build
+					errorMessage, ok := build()
+					if !ok {
+						buildFailed = true
+						mainLog("Build Failed: \n %s", errorMessage)
+						if !started {
+							os.Exit(1)
+						}
+						createBuildErrorsLog(errorMessage)
+					}
 				}
 			}
 
