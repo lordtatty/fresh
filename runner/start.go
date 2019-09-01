@@ -3,6 +3,7 @@ package runner
 import (
 	"fmt"
 	"os"
+	"os/exec"
 	"runtime"
 	"strings"
 	"time"
@@ -56,6 +57,14 @@ func start() {
 
 			buildFailed := false
 			if shouldRebuild(eventName) {
+				mainLog("TESTTESTTESTTEST: \n %s")
+				mainLog("TESTTESTTESTTEST: \n %s")
+				mainLog("TESTTESTTESTTEST: \n %s")
+
+				// clear
+				cmd := exec.Command("clear") //Linux example, its tested
+				cmd.Stdout = os.Stdout
+				cmd.Run()
 				// test
 				errorMessage, ok := test()
 				if !ok {
